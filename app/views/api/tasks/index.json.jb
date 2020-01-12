@@ -1,0 +1,6 @@
+
+@tasks.map do |task|
+  { description: task.description,
+   status: task.status,
+   id: task.user_id }
+end

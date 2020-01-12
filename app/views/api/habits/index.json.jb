@@ -1,0 +1,8 @@
+@habits.map do |habit|
+  {
+    id: habit.id,
+    description: habit.description,
+    frequency: habit.frequency,
+    user_id: habit.user_id,
+  }
+end

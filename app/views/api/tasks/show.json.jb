@@ -1,0 +1,4 @@
+
+{ id: @task.id,
+ status: @task.status,
+ user_id: @task.user_id }
