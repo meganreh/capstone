@@ -17,5 +17,7 @@ Rails.application.routes.draw do
     post "/tasks" => "tasks#create"
     patch "/tasks/:id" => "tasks#update"
     delete "/tasks/:id" => "tasks#destroy"
+
+    get "/habit_completions" => "habit_completions#index"
   end
 end

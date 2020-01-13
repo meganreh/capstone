@@ -29,6 +29,7 @@ class Api::HabitsController < ApplicationController
     @habit = Habit.find_by(id: params[:id])
     @habit.description = params[:description] || @habit.description
     @habit.frequency = params[:frequency] || @habit.frequency
+    @habit.completed = params[:completed] || @habit.completed
     if @habit.save
       render "show.json.jb"
     else
