@@ -1,4 +1,6 @@
 
 { id: @task.id,
+ description: @task.description,
  status: @task.status,
- user_id: @task.user_id }
+ user_id: @task.user_id,
+ due_date: @task.due_date }

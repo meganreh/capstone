@@ -1,6 +1,8 @@
 
 @tasks.map do |task|
-  { description: task.description,
+  { id: task.id,
+   description: task.description,
    status: task.status,
-   id: task.user_id }
+   user_id: task.user_id,
+   due_date: task.due_date_formatted }
 end

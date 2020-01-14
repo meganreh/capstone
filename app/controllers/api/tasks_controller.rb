@@ -1,17 +1,20 @@
 class Api::TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    if current_user
+      @tasks = current_user.tasks
+    end
     render "index.json.jb"
   end
 
   def create
     @task = Task.new(
       description: params[:description],
+      due_date: params[:due_date],
       status: params[:status],
-      user_id: params[:user_id],
+      user_id: current_user.id,
     )
     if @task.save
-      render "index.json.jb"
+      render "show.json.jb"
     else
       render json: { errors: @task.errors.full_messages }, status: 422
     end
