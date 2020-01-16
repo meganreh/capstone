@@ -10,7 +10,7 @@ class Api::TasksController < ApplicationController
     @task = Task.new(
       description: params[:description],
       due_date: params[:due_date],
-      status: params[:status],
+      completed: params[:completed],
       user_id: current_user.id,
     )
     if @task.save
@@ -28,7 +28,7 @@ class Api::TasksController < ApplicationController
   def update
     @task = Task.find_by(id: params[:id])
     @task.description = params[:description] || @task.description
-    @task.status = params[:status] || @task.status
+    @task.completed = params[:completed] || @task.completed
     if @task.save
       render "show.json.jb"
     else

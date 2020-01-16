@@ -2,7 +2,7 @@
 @tasks.map do |task|
   { id: task.id,
    description: task.description,
-   status: task.status,
+   completed: task.completed,
    user_id: task.user_id,
    due_date: task.due_date_formatted }
 end
