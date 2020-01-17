@@ -10,7 +10,6 @@ class Api::HabitsController < ApplicationController
   def create
     @habit = Habit.new(
       description: params[:description],
-      frequency: params[:frequency],
       user_id: current_user.id,
     )
     if @habit.save
@@ -28,8 +27,8 @@ class Api::HabitsController < ApplicationController
   def update
     @habit = Habit.find_by(id: params[:id])
     @habit.description = params[:description] || @habit.description
-    @habit.frequency = params[:frequency] || @habit.frequency
     @habit.completed = params[:completed] || @habit.completed
+    @habit.completion_number = params[:completion_number] || @habit.completion_number
     if @habit.save
       render "show.json.jb"
     else
