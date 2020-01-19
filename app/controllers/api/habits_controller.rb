@@ -27,7 +27,8 @@ class Api::HabitsController < ApplicationController
   def update
     @habit = Habit.find_by(id: params[:id])
     @habit.description = params[:description] || @habit.description
-    @habit.completed = params[:completed] || @habit.completed
+    # @habit.completed = params[:completed] || @habit.completed
+    @habit.completed = params[:completed] != nil ? params[:completed] : @habit.completed
     @habit.completion_number = params[:completion_number] || @habit.completion_number
     if @habit.save
       render "show.json.jb"

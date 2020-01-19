@@ -4,5 +4,5 @@
    description: task.description,
    completed: task.completed,
    user_id: task.user_id,
-   due_date: task.due_date }
+   due_date: task.due_date_formatted }
 end
